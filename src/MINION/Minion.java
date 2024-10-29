@@ -29,10 +29,13 @@ private boolean taunt;
     
     }
     
+    
     public int getHp()
     {
     return this.hp;
     }
+
+
     public int getCost()
     {
 

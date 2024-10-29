@@ -1,6 +1,6 @@
 package PLAYER;
 
-public class Weapon{
+public abstract class Weapon{
 
 String nume;
 private int durability;
@@ -21,19 +21,18 @@ public int getCost()
 {
     return this.cost;
 
-
 }
 
 public int getDurability()
 {
-
     return this.durability;
 }
 public int getAtk()
 {
-
     return this.atk;
 }
+//functii de baza ale atacurilor
 
+abstract void ceface();
 
 }

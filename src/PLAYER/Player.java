@@ -6,6 +6,8 @@ public class Player {
     private int mana;
     private int atk = 0;
     private boolean alive=true;
+    private boolean weaponequiped=false;
+    static Weapon weapon;//lmao the name
     boolean lifesteal;
     boolean divineshield;
     Object[] hand=new Object[30];//vector cu cartile
@@ -20,7 +22,11 @@ public class Player {
 
 
     }
-    
+    public void setWeapon(Weapon type)//cred ca merge?
+   {
+        this.weapon=type;
+
+   }
    public void setAlive(boolean n)
    {
     this.alive=n;
@@ -39,4 +45,15 @@ public class Player {
         return this.mana;
     }
 
+
+
+    public static void main(String[] args) 
+    {
+        Player testplayer=new Player("TESTER");
+        Weapon arma=new WeaponTest("CUTITLETAL",10,10);
+        testplayer.setWeapon(arma);
+        Player.weapon.ceface();
+
+
+    }
 }

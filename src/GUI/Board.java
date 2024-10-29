@@ -22,7 +22,7 @@ public class Board {
         JPanel manaPanel = new JPanel();
 
         JTable manaTable = new JTable(1,10);
-        manaTable.setDefaultRenderer(Object.class, new CustomCellRenderer(player1.getMana));
+        //manaTable.setDefaultRenderer(Object.class, new CustomCellRenderer(player1.getMana));
 
         JPanel heroPanel = new JPanel();
             JLabel weaponLabel = new JLabel();

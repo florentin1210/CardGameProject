@@ -7,9 +7,9 @@ String nume;
 public SpecialEffects(String nume)
 {
 
-
     this.nume=nume;
 }
+
 
 
 
