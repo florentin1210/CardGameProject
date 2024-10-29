@@ -10,6 +10,8 @@ private String tribeString;
 private int hp;
 private int atk;
 private int cost;
+// orice bool sa aiba bool in nume
+    // ex aliveBool
 private boolean alive=true;
 private boolean lifesteal;
 private boolean divineshield;
@@ -23,7 +25,8 @@ private boolean taunt;
     this.cost=cost;
     this.tribeString=tribe;
     }
-
+    // setLifesteal
+    // nu inteleg de ce n, il poti numi lifestealBool
     public void setLS(boolean n)
     {
        this.lifesteal=n;

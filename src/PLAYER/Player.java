@@ -10,13 +10,21 @@ public class Player {
     static Weapon weapon;//lmao the name
     boolean lifesteal;
     boolean divineshield;
-    Object[] hand=new Object[30];//vector cu cartile/spells/etc
+    // Changed hand max to 10
+    // Sunt 10 carti in mana 30 in deck, deck-ul nu trebuie salvat decat in fisierul cu deck si cand e nevoie
+    // sa tragi o carte se va apela metoda si se introduce in hand
+    Object[] hand=new Object[10];//vector cu cartile (atat, cartile)
 
 
 
-
+    // Changed 30 to 10 for max hand space
+    // nu inteleg denumirea pt setCarti si tipObject
+    // setCarti (ar trebui setHand?), tipObject (doar object?)
+    // va trebui getter (care returneaza obiectul si va fi apelat cu indexul de care e nevoie)
+    // si setter pentru hand(cand dai draw la o carte sau adaugi una datorita altei carti care va avea ca argument obiectul
+    // deci atunci hand va fi privat
     public void setCarti(int i,Object tipObject)
-    {   if(i>30)
+    {   if(i>10)
         return;
 
         hand[i]=tipObject;
@@ -33,16 +41,19 @@ public class Player {
 
 
     }
-    public void Heal(int n)
+    // changed Heal to heal to match project naming schemes
+    public void heal(int n)
     {
 
         this.hp=this.hp+n;
     }
+    // De ce weapon type? cred ca merge doar Weapon weapon, initializezi obiectul
     public void setWeapon(Weapon type)//cred ca merge?
    {
         this.weapon=type;
 
    }
+   // i mean nu sunt sigur daca e nevoie de asta, daca Hero-ul moare(player, e gata jocul), imi explici dupa
    public void setAlive(boolean n)
    {
     this.alive=n;
