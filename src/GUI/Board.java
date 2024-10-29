@@ -16,7 +16,9 @@ public class Board {
         player1Panel.setLayout(new GridLayout(4,1));
 
         JPanel handPanel = new JPanel();
-        handPanel.setLayout(new GridLayout(1,10));
+        // wallah help me
+
+        JPanel manaPanel = new JPanel();
 
     }
 }
