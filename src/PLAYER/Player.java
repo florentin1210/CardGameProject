@@ -16,11 +16,16 @@ public class Player {
         this.nume = nume;
 
     }
-    public void setHp(int n)
+    public void setHpDmg(int n)
     {
         this.hp=this.hp-n;
 
 
+    }
+    public void Heal(int n)
+    {
+
+        this.hp=this.hp+n;
     }
     public void setWeapon(Weapon type)//cred ca merge?
    {

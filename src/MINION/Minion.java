@@ -1,10 +1,12 @@
 package MINION;
 import SFX.*;
+import PLAYER.*;
 
-public class Minion{
+public class Minion {
 
 private String nume;
 private String tribeString;
+
 private int hp;
 private int atk;
 private int cost;
@@ -22,7 +24,16 @@ private boolean taunt;
     this.tribeString=tribe;
     }
 
+    public void setLS(boolean n)
+    {
+       this.lifesteal=n;
 
+    }
+    public boolean getLS()
+    {
+
+        return lifesteal;
+    }
     public int getAtk(){
 
     return this.atk;
