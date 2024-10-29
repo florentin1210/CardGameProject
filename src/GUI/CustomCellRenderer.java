@@ -5,29 +5,23 @@ import javax.swing.table.DefaultTableCellRenderer;
 import java.awt.*;
 
 public class CustomCellRenderer extends DefaultTableCellRenderer {
-    private final String[] targetString;
+    private int mana;
 
-    public CustomCellRenderer(String[] targetString) {
-        this.targetString = targetString;
+    public CustomCellRenderer(int mana) {
+        this.mana = mana;
     }
 
     @Override
-    public Component getTableCellRendererComponent(JTable table, Object value,
-                                                   boolean isSelected, boolean hasFocus,
-                                                   int row, int column) {
-        Component cell = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
 
-        cell.setBackground(Color.WHITE);
+        Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 
-        for (String colorValue : targetString) {
-            if (value != null && value.equals(colorValue)) {
-                cell.setBackground(Color.GRAY);
-                break;
-            }
+        if (column < mana) {
+            cellComponent.setBackground(Color.BLUE);
+        } else {
+            cellComponent.setBackground(Color.WHITE);
         }
 
-        cell.setForeground(Color.BLACK);
-
-        return cell;
+        return cellComponent;
     }
 }
