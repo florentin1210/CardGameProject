@@ -42,12 +42,20 @@ public class Menu {
         gbc.gridy = 3;
         menuPanel.add(exitButton, gbc);
 
+        bdButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Login login = new Login();
+                login.setVisible(true);
+            }
+        });
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
+
 
         main.add(menuPanel);
         main.setVisible(true);
