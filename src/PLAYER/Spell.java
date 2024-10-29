@@ -1,7 +1,7 @@
 package PLAYER;
 
 
-public class Spell {
+public class Spell implements Afisare{
 
 
 String nume;
@@ -12,5 +12,12 @@ String nume;
 
 
     }
+
+
+@Override
+public void afisare() {
+    System.out.println("FAC MAGIE!!!");
+    
+}
     
 }
