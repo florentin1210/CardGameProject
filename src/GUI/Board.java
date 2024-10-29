@@ -2,7 +2,6 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
-import java.lang.String;
 
 public class Board {
     public Board(){
@@ -26,6 +25,7 @@ public class Board {
         manaTable.setDefaultRenderer(Object.class, new CustomCellRenderer(player1.getMana));
 
         JPanel heroPanel = new JPanel();
+            JLabel weaponLabel = new JLabel();
 
     }
 }
