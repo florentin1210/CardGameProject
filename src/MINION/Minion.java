@@ -6,12 +6,9 @@ public class Minion {
 
 private String nume;
 private String tribeString;
-
 private int hp;
 private int atk;
 private int cost;
-// orice bool sa aiba bool in nume
-    // ex aliveBool
 private boolean alive=true;
 private boolean lifesteal;
 private boolean divineshield;
@@ -25,11 +22,10 @@ private boolean taunt;
     this.cost=cost;
     this.tribeString=tribe;
     }
-    // setLifesteal
-    // nu inteleg de ce n, il poti numi lifestealBool
-    public void setLS(boolean n)
+
+    public void setLS(boolean lifestealbool)
     {
-       this.lifesteal=n;
+       this.lifesteal=lifestealbool;
 
     }
     public boolean getLS()
@@ -56,14 +52,25 @@ private boolean taunt;
 
         return this.cost;
     }
+    public boolean getDs()
+    {
+return this.divineshield;
 
+    }
+    public void setDs(boolean a)
+    {
+
+        this.divineshield=a;
+    }
+    
     public void setAlive(boolean a)//Daca minionul moare,elimina de pe board
     {
         this.alive=a;
     }
     public void setHp(int n)
     {
-
+        if(this.hp-n<=0)
+        this.alive=false;
         this.hp=this.hp-n;
     }
 }

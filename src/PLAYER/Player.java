@@ -8,35 +8,68 @@ public class Player {
     private boolean alive=true;
     private boolean weaponequiped=false;
     static Weapon weapon;//lmao the name
-    boolean lifesteal;
-    boolean divineshield;
+   private  boolean lifesteal;
+   private  boolean divineshield;
     // Changed hand max to 10
     // Sunt 10 carti in mana 30 in deck, deck-ul nu trebuie salvat decat in fisierul cu deck si cand e nevoie
     // sa tragi o carte se va apela metoda si se introduce in hand
-    Object[] hand=new Object[10];//vector cu cartile (atat, cartile)
+    private Object[] hand=new Object[10];//vector cu cartile (atat, cartile)
 
 
 
     // Changed 30 to 10 for max hand space
-    // nu inteleg denumirea pt setCarti si tipObject
-    // setCarti (ar trebui setHand?), tipObject (doar object?)
-    // va trebui getter (care returneaza obiectul si va fi apelat cu indexul de care e nevoie)
-    // si setter pentru hand(cand dai draw la o carte sau adaugi una datorita altei carti care va avea ca argument obiectul
+    // nu inteleg denumirea pt setCarti si tipObject✅
+    // setCarti (ar trebui setHand?), tipObject (doar object?)✅
+    // va trebui getter (care returneaza obiectul si va fi apelat cu indexul de care e nevoie)✅
+    // si setter pentru hand(cand dai draw la o carte sau adaugi una datorita altei carti care va avea ca argument obiectul✅
     // deci atunci hand va fi privat
-    public void setCarti(int i,Object tipObject)
-    {   if(i>10)
-        return;
 
-        hand[i]=tipObject;
+    public void setMana(int mana)
+    {
+
+this.mana=mana;
 
     }
 
+    public int getMana()
+    {
+
+        return this.mana;
+    }
+
+
+    public void setManaConsuption(int manaminus)
+    {
+
+        this.mana=this.mana-manaminus;
+
+    }
+    public void setHand(int i,Object object)
+    {   if(i>10)
+        return;
+
+        hand[i]=object;
+
+    }
+
+
+    public Object getHandIndex(int i)
+    {
+        return hand[i];
+
+    }
+
+    public boolean getDs()
+    {
+        return divineshield;
+    }
     public Player(String nume) {
         this.nume = nume;
 
     }
     public void setHpDmg(int n)
-    {
+    {   if(this.hp-n<=0)
+        alive=false;
         this.hp=this.hp-n;
 
 
@@ -58,6 +91,11 @@ public class Player {
    {
     this.alive=n;
    }
+   public boolean getAlive()
+   {
+    return alive;
+
+   }
     public int getAtk() {
 
         return this.atk;
@@ -68,9 +106,6 @@ public class Player {
         return this.hp;
     }
 
-    public int getMana() {
-        return this.mana;
-    }
 
 
 
@@ -83,7 +118,7 @@ public class Player {
         Player.weapon.ceface();
         for(int i=0;i<30;i++)
         {
-            testplayer.setCarti(i, vraja);
+            testplayer.setHand(i, vraja);
 
         }
         for(int i=0;i<30;i++)
