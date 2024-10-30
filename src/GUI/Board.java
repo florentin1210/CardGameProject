@@ -3,7 +3,10 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 
+import PLAYER.*;
+
 public class Board {
+    private Player player1, player2;
     public Board(){
         JFrame main = new JFrame("Hearthsnot");
         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -25,7 +28,7 @@ public class Board {
         //manaTable.setDefaultRenderer(Object.class, new CustomCellRenderer(player1.getMana));
 
         JPanel heroPanel = new JPanel();
-            JLabel weaponLabel = new JLabel();
+        JLabel weaponLabel = new JLabel();
 
     }
 }
