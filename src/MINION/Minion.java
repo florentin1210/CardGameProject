@@ -73,4 +73,14 @@ return this.divineshield;
         this.alive=false;
         this.hp=this.hp-n;
     }
+    public void addHp(int n)
+    {
+        this.hp=this.hp+n;
+
+    }
+    public void addAtk(int n)
+    {
+        this.atk=this.atk+n;
+
+    }
 }

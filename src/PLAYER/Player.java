@@ -50,6 +50,17 @@ public class Player {
 
     }
 
+    public int getLastEmptyIndex() {
+        for (int i = 0; i < 10; ++i) {
+
+            if (hand[i] == null) {
+                return i;
+            }
+        }
+        return 9;//ultimul
+
+    }
+
     public Object getHandIndex(int i) {
         return hand[i];
 
