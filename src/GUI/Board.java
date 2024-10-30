@@ -4,15 +4,30 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+import MINION.*;
 import PLAYER.*;
 
 public class Board {
-    private Player player1, player2;
-    private int buttonCount;
-    private final int MAX_BUTTONS = 10;
-    private ArrayList<JButton> handButtons;
+    private Player player1 = new Player();
+    private Player player2 = new Player();
+
+    private int handButtonCount;
+    private final int HANDMAX_BUTTONS = 10;
+    private ArrayList<CardButton> handCards = new ArrayList<>();;
+
+    private int boardButtonCount;
+    private final int BOARDMAX_BUTTONS = 7;
+    private ArrayList<CardButton> boardButtons;
 
     public Board(){
+        for(int i = 0; i<3; i++){
+            player1.getHand[i] = drawCard();
+        }
+        for(int i = 0;i<4;i++){
+            player2.getHand[i] = drawCard();
+        }
+
+
         JFrame main = new JFrame("Hearthsnot");
         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         main.setSize(1920,1080);
@@ -25,10 +40,11 @@ public class Board {
         player1Panel.setLayout(new GridLayout(4,1));
 
         JPanel handPanel = new JPanel();
-        handPanel.setLayout(new FlowLayout());
-        handButtons = new ArrayList<>();
+        handPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-
+        for(int i = 0;i<player1.getHandSize;i++){
+            addCardToPanel(player1.getHand[i], handPanel,main);
+        }
 
         JPanel manaPanel = new JPanel();
 
@@ -37,20 +53,34 @@ public class Board {
         main.add(manaPanel);
 
         JPanel heroPanel = new JPanel();
-        JLabel weaponLabel = new JLabel();
+        heroPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        if(player1.getWeaponIsEquipped()){
+            WeaponLabel weaponLabel = new WeaponLabel(
+                    player1.getWeapon().getImageIcon,
+                    player1.getWeapon().getAtk(),
+                    player1.getWeapon().getDurability(),
+                    player1.getWeapon().getCost());
+            heroPanel.add(weaponLabel);
+        }
 
+
+
+        JPanel boardPanel = new JPanel();
 
 
     }
-    private void addButtonToPanel(JPanel handPanel, JFrame main) {
-        if (buttonCount < MAX_BUTTONS) {
-            JButton newButton = new JButton("Button " + (buttonCount + 1));
-            handPanel.add(newButton);
+    private void addCardToPanel(Minion minion, Panel handPanel, JFrame main) {
+        if (handButtonCount < HANDMAX_BUTTONS) {
+            CardButton newCard = new CardButton(minion.getImageIcon,minion.getAtk(),minion.getHp(),minion.getCost);
+            handPanel.add(newCard);
+
+            handCards.add(newCard);
+
             handPanel.revalidate();
             handPanel.repaint();
-            buttonCount++;
+            handButtonCount++;
         } else {
-            JOptionPane.showMessageDialog(main, "Maximum number of buttons reached!");
+            JOptionPane.showMessageDialog(main, "Maximum number of cards reached!");
         }
     }
 }

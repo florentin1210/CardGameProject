@@ -3,19 +3,18 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 
-public class CardButton extends JButton {
+public class WeaponLabel extends JLabel {
     private Image backgroundImage;
     private int atk;
-    private int hp;
+    private int durability;
     private int cost;
 
-    public CardButton(Image backgroundImage, int atk, int hp, int cost) {
+    public WeaponLabel(Image backgroundImage, int atk, int durability, int cost) {
         this.backgroundImage = backgroundImage;
         this.atk = atk;
-        this.hp = hp;
+        this.durability = durability;
         this.cost = cost;
-        setContentAreaFilled(false);
-        setFocusPainted(false);
+        setOpaque(false);
     }
 
     @Override
@@ -31,7 +30,7 @@ public class CardButton extends JButton {
 
         g.drawString(String.valueOf(atk), 10, getHeight() - 10);
 
-        g.drawString(String.valueOf(hp), getWidth() - 20, getHeight() - 10);
+        g.drawString(String.valueOf(durability), getWidth() - 20, getHeight() - 10);
 
         g.drawString(String.valueOf(cost), 10, 20);
     }
@@ -41,8 +40,8 @@ public class CardButton extends JButton {
         repaint();
     }
 
-    public void setHp(int hp) {
-        this.hp = hp;
+    public void setDurability(int durability) {
+        this.durability = durability;
         repaint();
     }
 
