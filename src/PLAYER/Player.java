@@ -105,7 +105,10 @@ this.mana=mana;
     public int getHp() {
         return this.hp;
     }
-
+    public boolean getWpCd()
+    {
+        return weaponequiped;
+    }
 
 
 

@@ -33,6 +33,12 @@ public int getAtk()
 }
 //functii de baza ale atacurilor
 
+public void commitAtk(int n)
+{
+    
+}
+
+
     // deci daca ai weapon equipped poti ataca cu hero-ul (player) care va fi o chestie de UI
 abstract void ceface();
 

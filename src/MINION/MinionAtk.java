@@ -74,16 +74,17 @@ public abstract class MinionAtk {
     // va da heal la player cu 2 atk
 
     // am combiat playerattack si damageminonxminion
-    public void playerAttack(Player jucator, Minion min) {
+    public void playerAttack(Player player, Minion min) {
+       
+            if (player.getDs() == true) {
+                min.setHp(player.getAtk());
 
-        if (jucator.getDs() == true) {
-            min.setHp(jucator.getAtk());
+            } else   if (player.getWpCd() == true){ // jucator.setHp
+                player.setHpDmg(min.getAtk());
+                min.setHp(player.getAtk());
 
-        } else { // jucator.setHp
-            jucator.setHpDmg(min.getAtk());
-            min.setHp(jucator.getAtk());
-
-        }
+            }
+        
     }
 
 }
