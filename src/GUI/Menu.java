@@ -4,13 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.*;
+
 
 public class Menu {
     public Menu(){
         JFrame main = new JFrame("Hearthsnot");
         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         main.setSize(1920, 1080);
-
 
         BackgroundPanel menuPanel = new BackgroundPanel("src/GUI/background.jpg");
         menuPanel.setLayout(new GridBagLayout());
@@ -59,6 +60,7 @@ public class Menu {
 
         main.add(menuPanel);
         main.setVisible(true);
+
     }
 }
 

@@ -1,14 +1,18 @@
 package GUI;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
+import java.sql.*;
 
-public class Login extends JFrame{
+public class Login extends JFrame {
     private CardLayout cardlayout;
     private JPanel mainp;
+
+    public static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/loginschema";
+    public static final String DB_USERNAME = "root";
+    public static final String DB_PASSWORD = "dan1234"; // Update this to your MySQL root password
+
     public Login() {
         setTitle("Login/Register Menu");
         setSize(400, 300);
@@ -16,20 +20,23 @@ public class Login extends JFrame{
 
         cardlayout = new CardLayout();
         mainp = new JPanel(cardlayout);
-        mainp.add(new menup(),"Menu");
+        mainp.add(new menup(), "Menu");
         mainp.add(new loginp(), "Login");
         mainp.add(new registerp(), "Register");
-
         add(mainp);
-        cardlayout.show(mainp,"Menu");
-
+        cardlayout.show(mainp, "Menu");
     }
 
+    private Connection connect() throws SQLException {
+        return DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+    }
+
+    //meniul
     private class menup extends JPanel {
         public menup() {
             setLayout(new GridLayout(3, 1, 10, 10));
 
-            JLabel welcomeLabel = new JLabel("Welcome! Please choose an option:", SwingConstants.CENTER);
+            JLabel welcomeLabel = new JLabel("Choose: ", SwingConstants.CENTER);
             add(welcomeLabel);
 
             JButton loginButton = new JButton("Login");
@@ -41,6 +48,8 @@ public class Login extends JFrame{
             add(registerButton);
         }
     }
+
+    //meniul de login
     private class loginp extends JPanel {
         private JTextField usernameField;
         private JPasswordField passwordField;
@@ -82,6 +91,7 @@ public class Login extends JFrame{
         }
     }
 
+    //meniul de register
     private class registerp extends JPanel {
         private JTextField usernameField;
         private JPasswordField passwordField;
@@ -117,26 +127,25 @@ public class Login extends JFrame{
                 if (registerUser(username, password)) {
                     statusLabel.setText("Registration successful!");
                 } else {
-                    statusLabel.setText("Username already exists.");
+                    statusLabel.setText("Username already exists or error!.");
                 }
             }
         }
     }
+
+
+    //verificare
     private boolean checkCredentials(String username, String password) {
-        try (BufferedReader reader = new BufferedReader(new FileReader("database.txt"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(":");
-                if (parts.length == 2) {
-                    String fileUsername = parts[0].trim();
-                    String filePassword = parts[1].trim();
-                    if (fileUsername.equals(username) && filePassword.equals(password)) {
-                        return true;
-                    }
-                }
+        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
+        try (Connection connection = connect(); PreparedStatement stmt = connection.prepareStatement(query)) {
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                return resultSet.next();
             }
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error reading the database file.");
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
         return false;
     }
@@ -145,29 +154,28 @@ public class Login extends JFrame{
         if (isUsernameTaken(username)) {
             return false;
         }
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("database.txt", true))) {
-            writer.write(username + ":" + password);
-            writer.newLine();
+        String query = "INSERT INTO users (username, password) VALUES (?, ?)";
+        try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, username);
+            stmt.setString(2, password);
+            stmt.executeUpdate();
             return true;
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error writing to the database file.");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error! during registration.");
         }
         return false;
     }
 
     private boolean isUsernameTaken(String username) {
-        try (BufferedReader reader = new BufferedReader(new FileReader("database.txt"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(":");
-                if (parts[0].trim().equals(username)) {
-                    return true;
-                }
+        String query = "SELECT * FROM users WHERE username = ?";
+        try (Connection conn = connect(); PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, username);
+            try (ResultSet rs = stmt.executeQuery()) {
+                return rs.next();
             }
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error reading the database file.");
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Error! checking username.");
         }
         return false;
     }
 }
-
