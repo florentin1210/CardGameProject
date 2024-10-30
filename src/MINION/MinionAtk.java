@@ -79,10 +79,11 @@ public abstract class MinionAtk {
             if (player.getDs() == true) {
                 min.setHp(player.getAtk());
 
-            } else   if (player.getWpCd() == true){ // jucator.setHp
+            } else   if (player.getWpCd() == true){
+
                 player.setHpDmg(min.getAtk());
                 min.setHp(player.getAtk());
-
+                player.getWeapon().setDurability(2);
             }
         
     }

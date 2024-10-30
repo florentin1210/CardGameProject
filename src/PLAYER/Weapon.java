@@ -3,7 +3,7 @@ package PLAYER;
 public abstract class Weapon{
 
 String nume;
-private int durability;
+private int durability=10;//cred
 private int cost;
 private int atk;
 
@@ -23,6 +23,13 @@ public int getCost()
 
 }
 
+public void setDurability(int damage)
+{
+    this.durability=this.durability-damage;
+
+
+}
+
 public int getDurability()
 {
     return this.durability;
@@ -35,7 +42,7 @@ public int getAtk()
 
 public void commitAtk(int n)
 {
-    
+
 }
 
 
