@@ -4,12 +4,10 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class DrawCard {
-    protected ArrayList<Object> deck;
+public abstract class DrawCard {
+    protected ArrayList<Object> deck=new ArrayList<>();
 
-    public DrawCard() {
-        deck = new ArrayList<>();
-    }
+
 
 
     public void loadDeck(String filePath) throws IOException {
