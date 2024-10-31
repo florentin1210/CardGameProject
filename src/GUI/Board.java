@@ -41,8 +41,8 @@ public class Board {
         JPanel handPanel = new JPanel();
         handPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
-        for(int i = 0;i<player1.getHandSize;i++){
-            addCardToPanel(player1.getHand(i), handPanel,main);
+        for(int i = 0;i<player1.getHandSize();i++){
+            addCardToPanel((Minion)player1.getHand(i), handPanel ,main);
         }
 
         JPanel manaPanel = new JPanel();
@@ -55,20 +55,20 @@ public class Board {
         heroPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         if(player1.getWeaponIsEquipped()){
             WeaponLabel weaponLabel = new WeaponLabel(
-                    player1.getWeapon().getImageIcon(),
+                    player1.getWeapon().getImageString(),
                     player1.getWeapon().getAtk(),
                     player1.getWeapon().getDurability(),
                     player1.getWeapon().getCost());
             heroPanel.add(weaponLabel);
         }
-        HeroButton heroButton = new HeroButton(player1.getImageIcon(),player1.getAtk(),player1.getHp());
+        HeroButton heroButton = new HeroButton(player1.getImageString(),player1.getAtk(),player1.getHp());
         HeroPowerButton heroPowerButton = new HeroPowerButton();
 
         JPanel boardPanel = new JPanel();
 
 
     }
-    private void addCardToPanel(Minion minion, Panel handPanel, JFrame main) {
+    private void addCardToPanel(Minion minion, JPanel handPanel, JFrame main) {
         if (handButtonCount < HANDMAX_BUTTONS) {
             CardButton newCard = new CardButton(minion.getImageIcon,minion.getAtk(),minion.getHp(),minion.getCost);
             handPanel.add(newCard);
