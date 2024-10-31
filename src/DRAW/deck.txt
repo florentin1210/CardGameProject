@@ -1,15 +1,30 @@
-Minion, image url, Righteous Protector, null, 1, 1, 1, false, true, true, false, false, false
-Minion, image url, Grimestreet Outfitter, null, 2, 2, 2, false, false, false, false, false, false
-Minion, image url, Muscle-o-Tron, Mech, 2, 4, 3, false, false, false, false, false, false
-Weapon, image url, Painter’s Virtue, 2, 3, 4
-Minion, image url, Tigress Plushy, Beast, 3, 2, 4, true, true, false, false, false, true
-Minion, image url, Toy Captain Tarim, null, 3, 7, 5, false, false, true, false, false, false
-Minion, image url, Amitus The Peacekeeper, null, 1, 8, 7, false, false, true, false, false, false
-Minion, image url, Drone Deconstructor, Mech, 1, 2, 1, false, false, false, false, false, false
-Minion, image url, Southsea Deckhand, Pirate, 2, 1, 1, false, false, false, false, true, false
-Minion, image url, Audio Medic, null, 2, 3, 2, true, false, false, false, false, true
-Minion, image url, Gold Panner, null, 1, 2, 2, false, false, false, false, false, false
-Minion, image url, Instrument Tech, null, 1, 2, 2, false, false, false, false, false, false
-Minion, image url, Outfit Tailor, null, 2, 2, 3, false, false, false, false, false, false
-Minion, image url, Leeroy Jenkins, null, 6, 2, 5, false, false, false, false, true, false
-Minion, image url, Magatha Bane of Music, null, 5, 5, 5, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Righteous Protector.png, Righteous Protector, null, 1, 1, 1, false, true, true, false, false, false
+Minion, src/DRAW/CARDIMG/Righteous Protector.png, Righteous Protector, null, 1, 1, 1, false, true, true, false, false, false
+Minion, src/DRAW/CARDIMG/Grimestreet Outfitter.png, Grimestreet Outfitter, null, 2, 2, 2, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Grimestreet Outfitter.png, Grimestreet Outfitter, null, 2, 2, 2, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Grimestreet Outfitter.png, Grimestreet Outfitter, null, 2, 2, 2, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Muscle-o-Tron.png, Muscle-o-Tron, Mech, 2, 4, 3, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Muscle-o-Tron.png, Muscle-o-Tron, Mech, 2, 4, 3, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Muscle-o-Tron.png, Muscle-o-Tron, Mech, 2, 4, 3, false, false, false, false, false, false
+Weapon, src/DRAW/CARDIMG/Painter’s Virtue.png, Painter’s Virtue, 2, 3, 4
+Weapon, src/DRAW/CARDIMG/Painter’s Virtue.png, Painter’s Virtue, 2, 3, 4
+Minion, src/DRAW/CARDIMG/Tigress Plushy.png, Tigress Plushy, Beast, 3, 2, 4, true, true, false, false, false, true
+Minion, src/DRAW/CARDIMG/Tigress Plushy.png, Tigress Plushy, Beast, 3, 2, 4, true, true, false, false, false, true
+Minion, src/DRAW/CARDIMG/Toy Captain Tarim.png, Toy Captain Tarim, null, 3, 7, 5, false, false, true, false, false, false
+Minion, src/DRAW/CARDIMG/Amitus The Peacekeeper.png, Amitus The Peacekeeper, null, 1, 8, 7, false, false, true, false, false, false
+Minion, src/DRAW/CARDIMG/Drone Deconstructor.png, Drone Deconstructor, Mech, 1, 2, 1, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Drone Deconstructor.png, Drone Deconstructor, Mech, 1, 2, 1, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Drone Deconstructor.png, Drone Deconstructor, Mech, 1, 2, 1, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Southsea Deckhand.png, Southsea Deckhand, Pirate, 2, 1, 1, false, false, false, false, true, false
+Minion, src/DRAW/CARDIMG/Southsea Deckhand.png, Southsea Deckhand, Pirate, 2, 1, 1, false, false, false, false, true, false
+Minion, src/DRAW/CARDIMG/Audio Medic.png, Audio Medic, null, 2, 3, 2, true, false, false, false, false, true
+Minion, src/DRAW/CARDIMG/Audio Medic.png, Audio Medic, null, 2, 3, 2, true, false, false, false, false, true
+Minion, src/DRAW/CARDIMG/Gold Panner.png, Gold Panner, null, 1, 2, 2, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Gold Panner.png, Gold Panner, null, 1, 2, 2, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Gold Panner.png, Gold Panner, null, 1, 2, 2, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Instrument Tech.png, Instrument Tech, null, 1, 2, 2, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Instrument Tech.png, Instrument Tech, null, 1, 2, 2, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Outfit Tailor.png, Outfit Tailor, null, 2, 2, 3, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Outfit Tailor.png, Outfit Tailor, null, 2, 2, 3, false, false, false, false, false, false
+Minion, src/DRAW/CARDIMG/Leeroy Jenkins.png, Leeroy Jenkins, null, 6, 2, 5, false, false, false, false, true, false
+Minion, src/DRAW/CARDIMG/Magatha Bane of Music.png, Magatha Bane of Music, null, 5, 5, 5, false, false, false, false, false, false
