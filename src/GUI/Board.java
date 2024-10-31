@@ -8,8 +8,8 @@ import MINION.*;
 import PLAYER.*;
 
 public class Board {
-    private Player player1 = new Player();
-    private Player player2 = new Player();
+    private Player player1 = new Player("George");
+    private Player player2 = new Player("George2");
 
     private int handButtonCount;
     private final int HANDMAX_BUTTONS = 10;
@@ -21,12 +21,11 @@ public class Board {
 
     public Board(){
         for(int i = 0; i<3; i++){
-            player1.getHand[i] = drawCard();
+            player1.addHand(Object) = drawCard();
         }
         for(int i = 0;i<4;i++){
-            player2.getHand[i] = drawCard();
+            player2.addHand(Object) = drawCard();
         }
-
 
         JFrame main = new JFrame("Hearthsnot");
         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -43,27 +42,27 @@ public class Board {
         handPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         for(int i = 0;i<player1.getHandSize;i++){
-            addCardToPanel(player1.getHand[i], handPanel,main);
+            addCardToPanel(player1.getHand(i), handPanel,main);
         }
 
         JPanel manaPanel = new JPanel();
 
         JTable manaTable = new JTable(1,10);
-        //manaTable.setDefaultRenderer(Object.class, new CustomCellRenderer(player1.getMana));
+        manaTable.setDefaultRenderer(Object.class, new CustomCellRenderer(player1.getMana));
         main.add(manaPanel);
 
         JPanel heroPanel = new JPanel();
         heroPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
         if(player1.getWeaponIsEquipped()){
             WeaponLabel weaponLabel = new WeaponLabel(
-                    player1.getWeapon().getImageIcon,
+                    player1.getWeapon().getImageIcon(),
                     player1.getWeapon().getAtk(),
                     player1.getWeapon().getDurability(),
                     player1.getWeapon().getCost());
             heroPanel.add(weaponLabel);
         }
-
-
+        HeroButton heroButton = new HeroButton(player1.getImageIcon(),player1.getAtk(),player1.getHp());
+        HeroPowerButton heroPowerButton = new HeroPowerButton();
 
         JPanel boardPanel = new JPanel();
 
