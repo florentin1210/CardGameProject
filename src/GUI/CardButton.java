@@ -2,18 +2,30 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 public class CardButton extends JButton {
     private Image backgroundImage;
     private int atk;
     private int hp;
     private int cost;
+    private Object card;
 
-    public CardButton(Image backgroundImage, int atk, int hp, int cost) {
-        this.backgroundImage = backgroundImage;
+    public CardButton(Object card, String backgroundImagePath, int atk, int hp, int cost) {
+        try {
+            this.backgroundImage = ImageIO.read(new File(backgroundImagePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Eroare la încărcarea imaginii: " + backgroundImagePath);
+        }
+
         this.atk = atk;
         this.hp = hp;
         this.cost = cost;
+        this.card = card;
+
         setContentAreaFilled(false);
         setFocusPainted(false);
     }
@@ -30,9 +42,7 @@ public class CardButton extends JButton {
         g.setColor(Color.WHITE);
 
         g.drawString(String.valueOf(atk), 10, getHeight() - 10);
-
         g.drawString(String.valueOf(hp), getWidth() - 20, getHeight() - 10);
-
         g.drawString(String.valueOf(cost), 10, 20);
     }
 
@@ -49,5 +59,9 @@ public class CardButton extends JButton {
     public void setCost(int cost) {
         this.cost = cost;
         repaint();
+    }
+
+    public Object getCard() {
+        return card;
     }
 }

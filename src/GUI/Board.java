@@ -2,6 +2,8 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.io.IOException;
 
@@ -15,13 +17,17 @@ public class Board{
 
     private int handButtonCount;
     private final int HANDMAX_BUTTONS = 10;
-    private ArrayList<CardButton> handCards = new ArrayList<>();;
-    private String deckFilePath = "/SRC/DRAW/deck.txt";
+    private ArrayList<CardButton> handCards = new ArrayList<>();
 
     private int boardButtonCount;
     private final int BOARDMAX_BUTTONS = 7;
-    private ArrayList<CardButton> boardButtons;
+    private ArrayList<CardButton> boardCards;
 
+    private Object cardPlayed;
+    private Boolean handCardIsSelected = false;
+    private int cardPlayedIndex;
+
+    private String deckFilePath = "SRC/DRAW/deck.txt";
 
     public Board(){
         for(int i = 0; i<3; i++){
@@ -48,7 +54,7 @@ public class Board{
         handPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         for(int i = 0;i<player1.getHandSize();i++){
-            addCardToPanel((Minion)player1.getHand(i), handPanel ,main);
+            addCardToHandPanel((Minion)player1.getHand(i), handPanel ,main);
         }
 
         JPanel manaPanel = new JPanel();
@@ -68,15 +74,26 @@ public class Board{
             heroPanel.add(weaponLabel);
         }
         HeroButton heroButton = new HeroButton(player1.getImageString(),player1.getAtk(),player1.getHp());
-        HeroPowerButton heroPowerButton = new HeroPowerButton();
+        heroPanel.add(heroButton);
+        RoundedButton heroPowerButton = new RoundedButton("Summon a 1/1");
+        heroPanel.add(heroPowerButton);
 
         JPanel boardPanel = new JPanel();
+        boardPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        RoundedButton playCardButton = new RoundedButton("Play card!");
+        playCardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+        boardPanel.add(playCardButton);
 
 
     }
-    private void addCardToPanel(Minion minion, JPanel handPanel, JFrame main) {
+    private void addCardToHandPanel(Minion minion, JPanel handPanel, JFrame main) {
         if (handButtonCount < HANDMAX_BUTTONS) {
-            CardButton newCard = new CardButton(minion.getImageIcon,minion.getAtk(),minion.getHp(),minion.getCost);
+            CardButton newCard = new CardButton(minion, minion.getImageString(),minion.getAtk(),minion.getHp(),minion.getCost());
             handPanel.add(newCard);
 
             handCards.add(newCard);
@@ -84,8 +101,32 @@ public class Board{
             handPanel.revalidate();
             handPanel.repaint();
             handButtonCount++;
+            newCard.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    cardPlayed = newCard.getCard();
+                    int minionCost = minion.getCost();
+                    if(!handCardIsSelected && (minionCost <= player1.getMana())) handCardIsSelected = true;
+                    else JOptionPane.showMessageDialog(main,
+                            "You already selected a card to play!");
+                }
+            });
         } else {
             JOptionPane.showMessageDialog(main, "Maximum number of cards reached!");
+        }
+        cardPlayedIndex = handButtonCount;
+    }
+    private void addCardToBoardPanel(Minion minion, JPanel boardPanel, JFrame main){
+        if(boardButtonCount < BOARDMAX_BUTTONS){
+            CardButton newCard = new CardButton(minion, minion.getImageString(),minion.getAtk(),minion.getHp(),minion.getCost());
+
+            boardPanel.add(newCard);
+
+            boardCards.add(newCard);
+
+            boardPanel.revalidate();
+            boardPanel.repaint();
+            boardButtonCount++;
         }
     }
 }
