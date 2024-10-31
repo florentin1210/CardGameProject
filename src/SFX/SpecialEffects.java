@@ -3,7 +3,7 @@ package SFX;
 import MINION.Minion;
 import PLAYER.*;
 import java.util.Random;
-
+import java.util.ArrayList;
 // astea is metode abstracte cred, nu o sa fie salvat ca obiect au doar metode
 public abstract class SpecialEffects {
 
@@ -55,6 +55,18 @@ public abstract class SpecialEffects {
 
         if (player.getWeaponIsEquipped() == true)
             player.setChargeBool(true);
+
+    }
+
+
+    public void Titan(ArrayList <Minion> friendlyMinion,ArrayList <Minion> enemyMinion,Player caller)
+    {
+              for(int i=0;i<friendlyMinion.size();++i)
+              {
+
+                
+              }
+
 
     }
 
