@@ -6,9 +6,18 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
 
+import static GUI.Login.*;
 
-public class Menu {
-    public Menu(){
+
+
+public class Menu implements LoginListener {
+    private JTextField usernameField;
+    private RoundedButton loginButton;
+    private JTextField usernameField2;
+    private RoundedButton loginButton2;
+    public int Player; // 1 pentru player1 , 2 pentru player2
+
+    public Menu() {
         JFrame main = new JFrame("Hearthsnot");
         main.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         main.setSize(1920, 1080);
@@ -43,13 +52,40 @@ public class Menu {
         gbc.gridy = 3;
         menuPanel.add(exitButton, gbc);
 
-        bdButton.addActionListener(new ActionListener() {
+        usernameField = new JTextField();
+        usernameField.setBounds(30, 30, 150, 25);
+        usernameField.setEditable(false);
+        main.add(usernameField);
+
+        loginButton = new RoundedButton("Login");
+        loginButton.setBounds(190, 30, 80, 25);
+        main.add(loginButton);
+
+        usernameField2 = new JTextField();
+        usernameField2.setBounds(30, 60, 150, 25);
+        usernameField2.setEditable(false);
+        main.add(usernameField2);
+
+        loginButton2 = new RoundedButton("Login");
+        loginButton2.setBounds(190, 60, 80, 25);
+        main.add(loginButton2);
+
+        loginButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Login login = new Login();
-                login.setVisible(true);
+                Player = 1;
+                openLoginGUI();
             }
         });
+
+        loginButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Player = 2;
+                openLoginGUI();
+            }
+        });
+
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,7 +98,22 @@ public class Menu {
         main.setVisible(true);
 
     }
+
+    private void openLoginGUI() {
+        Login login = new Login(this);
+        login.setVisible(true);
+    }
+
+    @Override
+    public void onLoginSuccess(String username) {
+        if (Player == 1) {
+            usernameField.setText(username);
+        } else if (Player == 2) {
+            usernameField2.setText(username);
+        }
+    }
 }
+
 
 
 

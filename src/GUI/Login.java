@@ -4,16 +4,23 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import static GUI.Menu.*;
 
 public class Login extends JFrame {
     private CardLayout cardlayout;
     private JPanel mainp;
+    private LoginListener loginListener;
 
     public static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/loginschema";
     public static final String DB_USERNAME = "root";
-    public static final String DB_PASSWORD = "dan1234"; // Update this to your MySQL root password
+    public static final String DB_PASSWORD = "dan1234";
+    public interface LoginListener {
+        void onLoginSuccess(String username);
+    }
 
-    public Login() {
+    public Login(LoginListener loginListener) {
+        this.loginListener = loginListener;
+
         setTitle("Login/Register Menu");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -77,6 +84,8 @@ public class Login extends JFrame {
             add(statusLabel);
         }
 
+
+
         private class LoginAction implements ActionListener {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,6 +93,11 @@ public class Login extends JFrame {
                 String password = new String(passwordField.getPassword());
                 if (checkCredentials(username, password)) {
                     statusLabel.setText("Login Successful!");
+
+                    if (loginListener != null) {
+                        loginListener.onLoginSuccess(username);
+                    }
+                    dispose();
                 } else {
                     statusLabel.setText("Invalid username or password.");
                 }
