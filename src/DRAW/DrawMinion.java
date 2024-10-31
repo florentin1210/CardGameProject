@@ -2,13 +2,11 @@ package DRAW;
 
 import MINION.Minion;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 public class DrawMinion {
-    public Minion drawMinion(BufferedReader reader) throws IOException {
-        String line = reader.readLine();
-        String[] parts = line.split(" ");
+    public Minion drawMinion(String line) throws IOException {
+        String[] parts = line.split(", ");
 
         String cardName = parts[1];
         String tribe = parts[2].equals("null") ? null : parts[2];

@@ -1,15 +1,12 @@
 package DRAW;
 
-import PLAYER.Spell;
 import PLAYER.Weapon;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 public class DrawWeapon {
-    public Spell drawWeapon(BufferedReader reader) throws IOException {
-        String line = reader.readLine();
-        String[] parts = line.split(" ");
+    public Weapon drawWeapon(String line) throws IOException {
+        String[] parts = line.split(", ");
 
         String cardName = parts[1];
         int manaCost = Integer.parseInt(parts[5]);

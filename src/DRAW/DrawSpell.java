@@ -2,13 +2,11 @@ package DRAW;
 
 import PLAYER.Spell;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 
 public class DrawSpell {
-    public Spell drawSpell(BufferedReader reader) throws IOException {
-        String line = reader.readLine();
-        String[] parts = line.split(" ");
+    public Spell drawSpell(String line) throws IOException {
+        String[] parts = line.split(", ");
 
         String cardName = parts[1];
         int manaCost = Integer.parseInt(parts[5]);
