@@ -21,6 +21,9 @@ public class Player {
     // sa tragi o carte se va apela metoda si se introduce in hand
     // private Object[] hand = new Object[10];// vector cu cartile (atat, cartile)
     private ArrayList<Object> hand = new ArrayList<>();
+    private ArrayList<Object> deck=new ArrayList<>();
+
+
     // Changed 30 to 10 for max hand space
     // nu inteleg denumirea pt setCarti si tipObject✅
     // setCarti (ar trebui setHand?), tipObject (doar object?)✅
@@ -35,14 +38,27 @@ public class Player {
 
     }
 
+    public void loadDeck(Object object)
+    {
+        this.deck.add(object);
+
+
+    }
+    public Object getDeckIndex(int i)
+    {
+        return deck.get(i);
+
+
+    }
     public int getHandSize() {
         return hand.size();
 
     }
-    public String getImageIcon()
+    public String getImageString()
     {
         return image;
     }
+    
     public void setHandIndex(int i,Object object)
     {
         this.hand.set(i,object);

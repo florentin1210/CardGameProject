@@ -22,7 +22,7 @@ public class Minion {
     private boolean rush;
     private String image = "/SRC/PLAYER/hero.png";
 
-    public String getImageIcon() {
+    public String getImageString() {
         return image;
     }
 
@@ -40,6 +40,20 @@ public class Minion {
         this.divineshield = divineshield;
 
     }
+
+
+    public boolean getcanAttackBool()
+    {
+        return canAttackBool;
+
+    }
+public void setcanAttackBool(boolean atkb)
+{
+
+    this.canAttackBool=atkb;
+
+}
+
 
     public boolean getTaunt() {
         return taunt;
