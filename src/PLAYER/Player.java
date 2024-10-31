@@ -13,6 +13,7 @@ public class Player {
    private Weapon weapon;// lmao the name
     private boolean lifesteal;
     private boolean divineshield;
+    private boolean chargeBool;
     private String image="/SRC/PLAYER/hero.png";
     // Changed hand max to 10
     // Sunt 10 carti in mana 30 in deck, deck-ul nu trebuie salvat decat in fisierul
@@ -149,4 +150,12 @@ public class Player {
         return weapon;
     }
 
+    public void setChargeBool(boolean b) {
+        this.chargeBool=b;
+    }
+public boolean getChargeBool()
+{
+return chargeBool;
+
+}
 }

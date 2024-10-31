@@ -2,13 +2,13 @@ package SFX;
 
 import MINION.Minion;
 import PLAYER.*;
+import java.util.Random;
 
 // astea is metode abstracte cred, nu o sa fie salvat ca obiect au doar metode
 public abstract class SpecialEffects {
 
     String nume;
     Player player;
-
 
     public void BuffHand() {
         for (int i = 0; i < player.getHandSize(); ++i) {
@@ -21,6 +21,40 @@ public abstract class SpecialEffects {
             }
 
         }
+
+    }
+
+    public void ToyCaptain(Minion tarim, Minion target) {
+
+        target.setHp(tarim.getHp());
+        target.setAtk(target.getAtk());
+
+    }
+
+    public void DroneDeconstructor(Minion minion) {
+        Random rd = new Random();
+        int i = rd.nextInt(4);
+        switch (i) {
+            case 0:
+                minion.setDs(true);
+                break;
+            case 1:
+                minion.setLS(true);
+                break;
+            case 2:
+                minion.setRushBool(true);
+                break;
+            case 3:
+                minion.setTaunt(true);
+                break;
+        }
+
+    }
+
+    public void SouthseaDeckhand(Player player) {
+
+        if (player.getWeaponIsEquipped() == true)
+            player.setChargeBool(true);
 
     }
 
