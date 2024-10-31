@@ -1,21 +1,25 @@
 package PLAYER;
 
+import java.util.ArrayList;
+import javax.swing.*;
+
 public class Player {
-    private String nume;
+    private String name;
     private int hp = 30;
     private int mana;
     private int atk = 0;
     private boolean alive = true;
-    private boolean weaponequiped = false;
+    private boolean WeaponIsEquipped = false;
     static Weapon weapon;// lmao the name
     private boolean lifesteal;
     private boolean divineshield;
+    private ImageIcon image=new ImageIcon("Hero.png");
     // Changed hand max to 10
     // Sunt 10 carti in mana 30 in deck, deck-ul nu trebuie salvat decat in fisierul
     // cu deck si cand e nevoie
     // sa tragi o carte se va apela metoda si se introduce in hand
-    private Object[] hand = new Object[10];// vector cu cartile (atat, cartile)
-
+    // private Object[] hand = new Object[10];// vector cu cartile (atat, cartile)
+    private ArrayList<Object> hand = new ArrayList<>();
     // Changed 30 to 10 for max hand space
     // nu inteleg denumirea pt setCarti si tipObject✅
     // setCarti (ar trebui setHand?), tipObject (doar object?)✅
@@ -25,6 +29,19 @@ public class Player {
     // carti care va avea ca argument obiectul✅
     // deci atunci hand va fi privat
 
+    public Player(String name) {
+        this.name = name;
+
+    }
+
+    public int getHandSize() {
+        return hand.size();
+
+    }
+    public ImageIcon getImageIcon()
+    {
+        return image;
+    }
     public void setMana(int mana) {
 
         this.mana = mana;
@@ -42,37 +59,39 @@ public class Player {
 
     }
 
-    public void setHand(int i, Object object) {
-        if (i > 10)
-            return;
-
-        hand[i] = object;
+    public void addHand(Object object) {
+        hand.add(object);
 
     }
 
-    public int getLastEmptyIndex() {
-        for (int i = 0; i < 10; ++i) {
+    public void removeHand(int i) {
 
-            if (hand[i] == null) {
-                return i;
-            }
-        }
-        return 9;//ultimul
-
+        hand.remove(i);
     }
 
+    /*
+     * public int getLastEmptyIndex() {
+     * for (int i = 0; i < 10; ++i) {
+     * 
+     * if (hand[i] == null) {
+     * return i;
+     * }
+     * }
+     * return 9;//ultimul
+     * 
+     * }
+     */
     public Object getHandIndex(int i) {
-        return hand[i];
+        return hand.get(i);
 
     }
+    public Object getHand(int i)
+    {
+        return hand.get(i);
 
+    }
     public boolean getDs() {
         return divineshield;
-    }
-
-    public Player(String nume) {
-        this.nume = nume;
-
     }
 
     public void setHpDmg(int n) {
@@ -116,42 +135,13 @@ public class Player {
         return this.hp;
     }
 
-    public void setWpCd() {
+    public boolean getWeaponIsEquipped() {
 
-        if (getWeapon().getDurability() <= 0) {
-            this.weaponequiped = false;
-            weapon = null;// poat merge
-        }
-
-    }
-
-    public boolean getWpCd() {
-
-        return weaponequiped;
+        return WeaponIsEquipped;
     }
 
     public Weapon getWeapon() {
         return weapon;
     }
 
-    public static void main(String[] args) {
-        Player testplayer = new Player("TESTER");
-        Weapon arma = new WeaponTest("CUTITLETAL", 10, 10);
-        Spell vraja = new Spell("MAGINE NEAGRA!!!!!!");
-        testplayer.setWeapon(arma);
-        Player.weapon.ceface();
-        for (int i = 0; i < 30; i++) {
-            testplayer.setHand(i, vraja);
-
-        }
-        for (int i = 0; i < 30; i++) {
-            if (testplayer.hand[i] instanceof Spell) {
-                Spell aux = (Spell) testplayer.hand[i];
-                System.out.print(i);
-                aux.afisare();
-            }
-
-        }
-
-    }
 }
