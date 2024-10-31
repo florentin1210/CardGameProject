@@ -6,7 +6,7 @@ String nume;
 private int durability=10;//cred
 private int cost;
 private int atk;
-private ImageIcon image=new ImageIcon("Hero.png");
+private String image="Hero.png";
 
 
 
@@ -20,7 +20,7 @@ public Weapon(String nume, int cost,int atk)
 }
 
 
-public ImageIcon getImageIcon()
+public String getImageString()
     {
         return image;
     }
