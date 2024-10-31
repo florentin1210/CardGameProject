@@ -16,20 +16,21 @@ public class Board{
     private int handButtonCount;
     private final int HANDMAX_BUTTONS = 10;
     private ArrayList<CardButton> handCards = new ArrayList<>();;
+    private String deckFilePath = "/SRC/DRAW/deck.txt";
 
     private int boardButtonCount;
     private final int BOARDMAX_BUTTONS = 7;
     private ArrayList<CardButton> boardButtons;
-    
+
 
     public Board(){
         for(int i = 0; i<3; i++){
-            Object object = drawCard.drawCard();
-            player1.addHand(object);
+            DrawCard.loadDeck(deckFilePath);
+            player1.addHand(DrawCard.drawCard());
         }
         for(int i = 0;i<4;i++){
-            Object object = DrawCard();
-            player2.addHand(object);
+            DrawCard.loadDeck(deckFilePath);
+            player2.addHand(DrawCard.drawCard());
         }
 
         JFrame main = new JFrame("Hearthsnot");

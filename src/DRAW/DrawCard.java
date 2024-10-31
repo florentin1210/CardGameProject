@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public abstract class DrawCard {
-    protected ArrayList<Object> deck=new ArrayList<>();
+    protected static ArrayList<Object> deck=new ArrayList<>();
 
 
 
 
-    public void loadDeck(String filePath) throws IOException {
+    public static void loadDeck(String filePath) {
         //filePath = src/DRAW/deck.txt;
         //ca sa folositi unde e nevoie
 
@@ -44,7 +44,7 @@ public abstract class DrawCard {
     }
 
     //inainte de draw card trebuie sa dai load la deck cu metoda loadDeck de mai sus!!
-    public Object drawCard() {
+    public static Object drawCard() {
         if (!deck.isEmpty()) {
             Random random = new Random();
             int i = random.nextInt(deck.size());
