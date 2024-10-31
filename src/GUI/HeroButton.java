@@ -8,9 +8,8 @@ public class HeroButton extends JButton {
     private int atk;
     private int hp;
 
-    public HeroButton(String imagePath, int atk, int hp) {
-
-        this.backgroundImage = new ImageIcon(imagePath).getImage();
+    public HeroButton(Image backgroundImage, int atk, int hp, int cost) {
+        this.backgroundImage = backgroundImage;
         this.atk = atk;
         this.hp = hp;
         setContentAreaFilled(false);
@@ -31,6 +30,7 @@ public class HeroButton extends JButton {
         g.drawString(String.valueOf(atk), 10, getHeight() - 10);
 
         g.drawString(String.valueOf(hp), getWidth() - 20, getHeight() - 10);
+
     }
 
     public void setAtk(int atk) {

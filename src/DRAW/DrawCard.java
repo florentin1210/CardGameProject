@@ -24,17 +24,14 @@ public class DrawCard {
 
                 switch (type) {
                     case "Minion":
-                        //in fisier: type, name, tribe, attack, hp, manaCost, boolean lifeSteal, boolean divineShield
                         DrawMinion drawMinion = new DrawMinion();
                         deck.add(drawMinion.drawMinion(reader));
                         break;
                     case "Spell":
-                        //in fisier: p*** mea stie ce ii asta
                         DrawSpell drawSpell = new DrawSpell();
                         deck.add(drawSpell.drawSpell(reader));
                         break;
                     case "Weapon":
-                        //in fisier: type, name, attack, hp/durability, manaCost, boolean lifeSteal, boolean divineShield
                         DrawWeapon drawWeapon = new DrawWeapon();
                         deck.add(drawWeapon.drawWeapon(reader));
                         break;
@@ -45,7 +42,6 @@ public class DrawCard {
         }
     }
 
-    //inainte de draw card trebuie sa dai load la deck cu metoda loadDeck de mai sus!!
     public Object drawCard() {
         if (!deck.isEmpty()) {
             Random random = new Random();
