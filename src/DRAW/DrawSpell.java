@@ -8,10 +8,10 @@ public class DrawSpell {
     public Spell drawSpell(String line) throws IOException {
         String[] parts = line.split(", ");
 
-        String cardName = parts[1];
-        int manaCost = Integer.parseInt(parts[5]);
+        String imagePath = parts[1];
+        String cardName = parts[2];
+        int manaCost = Integer.parseInt(parts[3]);
 
-        return new Spell(cardName, manaCost);
-        //ma gandesc ca inca nu ii terminata clasa spell, adaug pe parcurs
+        return new Spell(imagePath, cardName, manaCost);
     }
 }

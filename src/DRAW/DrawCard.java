@@ -22,17 +22,17 @@ public abstract class DrawCard {
 
                 switch (type) {
                     case "Minion":
-                        //in fisier: type, name, tribe, attack, hp, manaCost, boolean lifeSteal, boolean divineShield
+                        //in fisier: type, image, name, tribe, attack, hp, manaCost, boolean lifeSteal, boolean divineShield, taunt, poisonBool, chargeBool, rushBool
                         DrawMinion drawMinion = new DrawMinion();
                         deck.add(drawMinion.drawMinion(line));
                         break;
                     case "Spell":
-                        //in fisier: idk
+                        //in fisier: type, image, cardName, manaCost
                         DrawSpell drawSpell = new DrawSpell();
                         deck.add(drawSpell.drawSpell(line));
                         break;
                     case "Weapon":
-                        //in fisier: type, name, attack, hp/durability, manaCost, boolean lifeSteal, boolean divineShield
+                        //in fisier: type, image, cardName, attack, durability, manaCost
                         DrawWeapon drawWeapon = new DrawWeapon();
                         deck.add(drawWeapon.drawWeapon(line));
                         break;

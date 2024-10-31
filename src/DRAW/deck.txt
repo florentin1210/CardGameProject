@@ -1,3 +1,15 @@
-Minion, Righteous Protector, null, 1, 1, 1, false, true
-Minion, Grimestreet Outfitter, null, 2, 2, 2, false, false
-Minion, Muscle-o-Tron, Mech, 2, 4, 3, flase, flase
+Minion, image url, Righteous Protector, null, 1, 1, 1, false, true, true, false, false, false
+Minion, image url, Grimestreet Outfitter, null, 2, 2, 2, false, false, false, false, false, false
+Minion, image url, Muscle-o-Tron, Mech, 2, 4, 3, false, false, false, false, false, false
+Weapon, image url, Painter’s Virtue, 2, 3, 4
+Minion, image url, Tigress Plushy, Beast, 3, 2, 4, true, true, false, false, false, true
+Minion, image url, Toy Captain Tarim, null, 3, 7, 5, false, false, true, false, false, false
+Minion, image url, Amitus The Peacekeeper, null, 1, 8, 7, false, false, true, false, false, false
+Minion, image url, Drone Deconstructor, Mech, 1, 2, 1, false, false, false, false, false, false
+Minion, image url, Southsea Deckhand, Pirate, 2, 1, 1, false, false, false, false, true, false
+Minion, image url, Audio Medic, null, 2, 3, 2, true, false, false, false, false, true
+Minion, image url, Gold Panner, null, 1, 2, 2, false, false, false, false, false, false
+Minion, image url, Instrument Tech, null, 1, 2, 2, false, false, false, false, false, false
+Minion, image url, Outfit Tailor, null, 2, 2, 3, false, false, false, false, false, false
+Minion, image url, Leeroy Jenkins, null, 6, 2, 5, false, false, false, false, true, false
+Minion, image url, Magatha Bane of Music, null, 5, 5, 5, false, false, false, false, false, false
