@@ -45,6 +45,7 @@ public class DrawCard {
         }
     }
 
+    //inainte de draw card trebuie sa dai load la deck cu metoda loadDeck de mai sus!!
     public Object drawCard() {
         if (!deck.isEmpty()) {
             Random random = new Random();
