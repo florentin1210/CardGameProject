@@ -86,6 +86,15 @@ public class Menu implements LoginListener {
             }
         });
 
+        bdButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LeaderboardGUI leaderboard = new LeaderboardGUI();
+                leaderboard.setVisible(true);
+
+            }
+        });
+
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
