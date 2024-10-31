@@ -4,11 +4,13 @@ package PLAYER;
 public class Spell implements Afisare{
 
 // string name
-String nume;
+private String nume;
+private int mana;
     // string name
-    public Spell(String nume)
+    public Spell(String nume,int mana)
     {
         this.nume=nume;
+        this.mana=mana;
 
 
     }

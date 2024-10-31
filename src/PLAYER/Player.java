@@ -10,10 +10,10 @@ public class Player {
     private int atk = 0;
     private boolean alive = true;
     private boolean WeaponIsEquipped = false;
-    static Weapon weapon;// lmao the name
+   private Weapon weapon;// lmao the name
     private boolean lifesteal;
     private boolean divineshield;
-    private ImageIcon image=new ImageIcon("Hero.png");
+    private String image="/SRC/PLAYER/hero.png";
     // Changed hand max to 10
     // Sunt 10 carti in mana 30 in deck, deck-ul nu trebuie salvat decat in fisierul
     // cu deck si cand e nevoie
@@ -38,9 +38,14 @@ public class Player {
         return hand.size();
 
     }
-    public ImageIcon getImageIcon()
+    public String getImageIcon()
     {
         return image;
+    }
+    public void setHandIndex(int i,Object object)
+    {
+        this.hand.set(i,object);
+
     }
     public void setMana(int mana) {
 

@@ -1,11 +1,15 @@
 package PLAYER;
-
-public abstract class Weapon{
+import javax.swing.*;
+public class Weapon{
 
 String nume;
 private int durability=10;//cred
 private int cost;
 private int atk;
+private ImageIcon image=new ImageIcon("Hero.png");
+
+
+
 
 public Weapon(String nume, int cost,int atk)
 {
@@ -16,7 +20,10 @@ public Weapon(String nume, int cost,int atk)
 }
 
 
-
+public ImageIcon getImageIcon()
+    {
+        return image;
+    }
 public int getCost()
 {
     return this.cost;
@@ -47,6 +54,5 @@ public void commitAtk(int n)
 
 
     // deci daca ai weapon equipped poti ataca cu hero-ul (player) care va fi o chestie de UI
-abstract void ceface();
 
 }

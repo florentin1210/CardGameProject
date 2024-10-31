@@ -1,26 +1,40 @@
 package MINION;
 import SFX.*;
 import PLAYER.*;
-
+import javax.swing.*;
 public class Minion {
 
 private String nume;
 private String tribeString;
 private int hp;
 private int atk;
-private int cost;
+private int costmana;
 private boolean alive=true;
 private boolean lifesteal;
 private boolean divineshield;
 private boolean taunt;
+private String image="/SRC/PLAYER/hero.png";
 
 
-    public Minion(String nume,int cost,String tribe)
+public String getImageIcon()
+    {
+        return image;
+    }
+
+// return new Minion(cardName, tribe, attack, hp, manaCost, lifeSteal, divineShield);
+
+    public Minion(String nume,String tribe,int atk,int hp,int mana,boolean lifesteam,boolean divineshield)
     {
 
     this.nume=nume;
-    this.cost=cost;
     this.tribeString=tribe;
+    this.atk=atk;
+    this.hp=hp;
+    this.costmana=mana;
+    this.lifesteal=lifesteam;
+    this.divineshield=divineshield;
+    
+    
     }
 
     public void setLS(boolean lifestealbool)
@@ -50,7 +64,7 @@ private boolean taunt;
     {
 
 
-        return this.cost;
+        return this.costmana;
     }
     public boolean getDs()
     {
