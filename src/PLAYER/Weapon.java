@@ -10,16 +10,17 @@ private String image="Hero.png";
 
 
 
-
-public Weapon(String nume, int cost,int atk)
+public Weapon(String iamge,String nume,int atk,int durability, int cost)
 {
     this.nume=nume;
     this.cost=cost;
     this.atk=atk;
+    this.image=iamge;
+    this.cost=cost;
 
 }
 
-
+//locatie image, cardName, attack, durability, manaCost
 public String getImageString()
     {
         return image;

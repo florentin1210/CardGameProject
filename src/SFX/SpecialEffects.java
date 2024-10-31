@@ -60,10 +60,10 @@ public abstract class SpecialEffects {
 
 
     public void Titan(ArrayList <Minion> friendlyMinion,ArrayList <Minion> enemyMinion,Player caller)
-    {
+    {           
               for(int i=0;i<friendlyMinion.size();++i)
               {
-
+                    //Minion aux=
                 
               }
 

@@ -18,7 +18,7 @@ public class Minion {
     private boolean poisonBool;
     private boolean chargeBool;
     private boolean rushBool;
-    private boolean canAttackBool;
+    private boolean canAttackBool=false;
     private boolean rush;
     private String image = "/SRC/PLAYER/hero.png";
 
@@ -29,8 +29,8 @@ public class Minion {
     // return new Minion(cardName, tribe, attack, hp, manaCost, lifeSteal,
     // divineShield);
 
-    public Minion(String nume, String tribe, int atk, int hp, int mana, boolean lifesteam, boolean divineshield) {
-
+    public Minion(String imageloc,String nume, String tribe, int atk, int hp, int mana, boolean lifesteam, boolean divineshield,boolean taunt,boolean poisonBool,boolean chargeBool,boolean rushBool) {
+        this.image=imageloc;
         this.nume = nume;
         this.tribeString = tribe;
         this.atk = atk;
@@ -38,8 +38,26 @@ public class Minion {
         this.costmana = mana;
         this.lifesteal = lifesteam;
         this.divineshield = divineshield;
+        this.taunt=taunt;
+        this.poisonBool=poisonBool;
+        this.chargeBool=chargeBool;
+        this.rushBool=rushBool;
 
     }
+
+/*
+ * minion: locatie image, name, tribe, attack, hp, manaCost, boolean lifeSteal, boolean divineShield, taunt, poisonBool, chargeBool, rushBool
+weapon: locatie image, cardName, attack, durability, manaCost
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
+
 
 
     public boolean getcanAttackBool()
