@@ -3,12 +3,13 @@ package GUI;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.io.IOException;
 
 import MINION.*;
 import PLAYER.*;
 import DRAW.*;
 
-public class Board {
+public class Board{
     private Player player1 = new Player("George");
     private Player player2 = new Player("George2");
 
@@ -19,10 +20,11 @@ public class Board {
     private int boardButtonCount;
     private final int BOARDMAX_BUTTONS = 7;
     private ArrayList<CardButton> boardButtons;
+    
 
     public Board(){
         for(int i = 0; i<3; i++){
-            Object object = DrawCard();
+            Object object = drawCard.drawCard();
             player1.addHand(object);
         }
         for(int i = 0;i<4;i++){
@@ -51,7 +53,7 @@ public class Board {
         JPanel manaPanel = new JPanel();
 
         JTable manaTable = new JTable(1,10);
-        manaTable.setDefaultRenderer(Object.class, new CustomCellRenderer(player1.getMana));
+        manaTable.setDefaultRenderer(Object.class, new CustomCellRenderer(player1.getMana()));
         main.add(manaPanel);
 
         JPanel heroPanel = new JPanel();
