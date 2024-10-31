@@ -40,6 +40,10 @@ public abstract class DrawCard {
                         System.out.println("ERROR:(deck) Unknown card type: " + type);
                 }
             }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 
