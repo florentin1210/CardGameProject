@@ -2,6 +2,9 @@ package GUI;
 
 import javax.swing.*;
 import java.awt.*;
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 public class WeaponLabel extends JLabel {
     private Image backgroundImage;
@@ -9,8 +12,15 @@ public class WeaponLabel extends JLabel {
     private int durability;
     private int cost;
 
-    public WeaponLabel(Image backgroundImage, int atk, int durability, int cost) {
-        this.backgroundImage = backgroundImage;
+    public WeaponLabel(String backgroundImagePath, int atk, int durability, int cost) {
+        try {
+            // Încărcăm imaginea din calea specificată
+            this.backgroundImage = ImageIO.read(new File(backgroundImagePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Eroare la încărcarea imaginii: " + backgroundImagePath);
+        }
+
         this.atk = atk;
         this.durability = durability;
         this.cost = cost;
@@ -29,9 +39,7 @@ public class WeaponLabel extends JLabel {
         g.setColor(Color.WHITE);
 
         g.drawString(String.valueOf(atk), 10, getHeight() - 10);
-
         g.drawString(String.valueOf(durability), getWidth() - 20, getHeight() - 10);
-
         g.drawString(String.valueOf(cost), 10, 20);
     }
 
