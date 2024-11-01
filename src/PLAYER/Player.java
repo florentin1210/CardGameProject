@@ -15,23 +15,8 @@ public class Player {
     private boolean divineshield;
     private boolean chargeBool;
     private String image="/SRC/PLAYER/hero.png";
-    // Changed hand max to 10
-    // Sunt 10 carti in mana 30 in deck, deck-ul nu trebuie salvat decat in fisierul
-    // cu deck si cand e nevoie
-    // sa tragi o carte se va apela metoda si se introduce in hand
-    // private Object[] hand = new Object[10];// vector cu cartile (atat, cartile)
     private ArrayList<Object> hand = new ArrayList<>();
     private ArrayList<Object> deck=new ArrayList<>();
-
-
-    // Changed 30 to 10 for max hand space
-    // nu inteleg denumirea pt setCarti si tipObject✅
-    // setCarti (ar trebui setHand?), tipObject (doar object?)✅
-    // va trebui getter (care returneaza obiectul si va fi apelat cu indexul de care
-    // e nevoie)✅
-    // si setter pentru hand(cand dai draw la o carte sau adaugi una datorita altei
-    // carti care va avea ca argument obiectul✅
-    // deci atunci hand va fi privat
 
     public Player(String name) {
         this.name = name;
@@ -136,8 +121,6 @@ public class Player {
 
     }
 
-    // i mean nu sunt sigur daca e nevoie de asta, daca Hero-ul moare(player, e gata
-    // jocul), imi explici dupa
     public void setAlive(boolean n) {
         this.alive = n;
     }

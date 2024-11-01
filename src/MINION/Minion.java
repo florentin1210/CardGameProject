@@ -26,9 +26,6 @@ public class Minion {
         return image;
     }
 
-    // return new Minion(cardName, tribe, attack, hp, manaCost, lifeSteal,
-    // divineShield);
-
     public Minion(String imageloc,String nume, String tribe, int atk, int hp, int mana, boolean lifesteam, boolean divineshield,boolean taunt,boolean poisonBool,boolean chargeBool,boolean rushBool) {
         this.image=imageloc;
         this.nume = nume;
@@ -44,22 +41,6 @@ public class Minion {
         this.rushBool=rushBool;
 
     }
-
-/*
- * minion: locatie image, name, tribe, attack, hp, manaCost, boolean lifeSteal, boolean divineShield, taunt, poisonBool, chargeBool, rushBool
-weapon: locatie image, cardName, attack, durability, manaCost
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- */
-
-
-
-
     public boolean getcanAttackBool()
     {
         return canAttackBool;
@@ -138,7 +119,7 @@ public void setcanAttackBool(boolean atkb)
         this.divineshield = a;
     }
 
-    public void setAlive(boolean a)// Daca minionul moare,elimina de pe board
+    public void setAlive(boolean a)
     {
         this.alive = a;
     }

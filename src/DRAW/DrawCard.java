@@ -11,8 +11,6 @@ public abstract class DrawCard {
 
 
     public static void loadDeck(String filePath) {
-        //filePath = src/DRAW/deck.txt;
-        //ca sa folositi unde e nevoie
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -47,7 +45,6 @@ public abstract class DrawCard {
         }
     }
 
-    //inainte de draw card trebuie sa dai load la deck cu metoda loadDeck de mai sus!!
     public static Object drawCard() {
         if (!deck.isEmpty()) {
             Random random = new Random();
