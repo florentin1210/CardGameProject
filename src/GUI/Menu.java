@@ -32,7 +32,7 @@ public class Menu implements LoginListener {
         ImageIcon logoImageIcon = new ImageIcon("src/GUI/logo.png");
         JLabel logoLabel = new JLabel(logoImageIcon);
         RoundedButton playButton = new RoundedButton("Play");
-        RoundedButton bdButton = new RoundedButton("bd");
+        RoundedButton bdButton = new RoundedButton("Leaderboard");
         RoundedButton exitButton = new RoundedButton("Exit");
 
         Dimension buttonSize = new Dimension(400, 80);
